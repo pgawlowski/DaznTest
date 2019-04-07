@@ -13,19 +13,45 @@ import Viperit
 
 // MARK: - ScoresPresenter Class
 final class ScoresPresenter: Presenter {
-}
 
-// MARK: - ScoresPresenter API
-extension ScoresPresenter: ScoresPresenterApi {
+    private var scores: PublishSubject<ScoresViewModel?> = PublishSubject()
 
     func fetchData() -> Driver<Void> {
         return interactor.fetchScoreData()
-            .do(onSuccess: { response in
-                print(response)
+            .do(onSuccess: { [weak self] response in
+                self?.scores.onNext(response)
+                self?.view.endRefreshing()
             }, onError: { [weak self] error in
                 self?.view.showError(error)
             }).map { _ in Void() }
             .asDriver(onErrorJustReturn: ())
+    }
+
+}
+
+// MARK: - ScoresPresenter API
+extension ScoresPresenter: ScoresPresenterApi {
+    struct Input {
+        let refreshTrigger: Driver<Void>
+    }
+    struct Output {
+        let cancelable: Cancelable
+        let scores: Driver<ScoresViewModel?>
+    }
+
+    func transform(_ input: Input) -> Output {
+        let refreshInput = input.refreshTrigger.flatMapLatest { [unowned self] _ -> Driver<Void> in
+            self.fetchData()
+        }
+
+        let cancelable = Disposables.create([
+            refreshInput.drive(),
+        ])
+
+        let scoresOutput = scores.asDriver(onErrorJustReturn: nil)
+
+        return Output(cancelable: cancelable,
+                      scores: scoresOutput)
     }
 
 }

@@ -26,8 +26,8 @@ enum ParameterType: String, Codable {
 }
 
 struct ParameterDto: Codable {
-    let _name: String?
-    let _value: String?
+    let name: String?
+    let value: String?
 }
 
 struct SeasonDto: Codable {
@@ -40,14 +40,14 @@ struct RoundDto: Codable {
 }
 
 struct GroupDto: Codable {
-    let matchDto: [MatchDto]?
+    let match: [MatchDto]?
 }
 
 struct MatchDto: Codable {
-    let _team_A_Name: String?
-    let _team_B_Name: String?
-    let _fs_A: Int?
-    let _fs_B: Int?
+    let team_A_name: String?
+    let team_B_name: String?
+    let fs_A: Int?
+    let fs_B: Int?
 }
 
 struct ResultsDto: Codable {
@@ -55,18 +55,18 @@ struct ResultsDto: Codable {
 }
 
 struct RankingDto: Codable {
-    let _rank: Int?
-    let _last_rank: Int?
-    let _zone_start: String?
+    let rank: Int?
+    let last_rank: Int?
+    let zone_start: String?
 //    let "_team_id": "676",
 //    let "_club_name": "Manchester City",
 //    let "_countrycode": "ENG",
 //    let "_area_id": "68",
-    let _matches_total: Int?
-    let _matches_won: Int?
-    let _matches_draw: Int?
-    let _matches_lost: Int?
-    let _goals_pro: Int?
-    let _goals_against: Int?
-    let _points: Int?
+    let matches_total: Int?
+    let matches_won: Int?
+    let matches_draw: Int?
+    let matches_lost: Int?
+    let goals_pro: Int?
+    let goals_against: Int?
+    let points: Int?
 }

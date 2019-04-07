@@ -8,21 +8,56 @@
 //
 
 import RxCocoa
+import RxDataSources
 import RxSwift
 import UIKit
 import Viperit
 
 // MARK: ScoresView Class
 final class ScoresView: DaznUserInterface {
+
+    @IBOutlet weak var tableView: IntrinsicTableView!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        configureTableView()
+        bindPresenter()
+    }
+
+    func configureTableView() {
+        tableView.refreshControl = refreshControl
+        tableView.register(nibWithCellClass: ScoresTableViewCell.self)
+    }
+
+    func bindPresenter() {
+        let input = ScoresPresenter.Input(refreshTrigger: refreshTrigger)
+
+        let output = presenter.transform(input)
+        output.cancelable.disposed(by: disposeBag)
+        driveTableView(output.scores)
+    }
+
+    func driveTableView(_ driver: Driver<ScoresViewModel?>) {
+        let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, MatchDto>>(
+            configureCell: { _, tableView, _, item in
+                let cell = tableView.dequeueReusableCell(withClass: ScoresTableViewCell.self)
+                cell.setup(item)
+                return cell
+        })
+        dataSource.titleForHeaderInSection = { dataSource, sectionIndex in
+            return dataSource[sectionIndex].model
+        }
+
+        driver.asObservable()
+            .map{ [SectionModel(model: $0?.title ?? "", items: $0?.matches ?? [])]}
+            .bind(to: tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+    }
 }
 
 // MARK: - ScoresView API
 extension ScoresView: ScoresViewApi {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        presenter.fetchData().drive().disposed(by: disposeBag)
-    }
 
 }
 

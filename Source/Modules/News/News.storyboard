@@ -26,11 +26,12 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="vb6-4r-Epx" firstAttribute="top" relation="greaterThanOrEqual" secondItem="1BZ-Rf-R05" secondAttribute="bottom" id="IBx-L4-jq2"/>
                             <constraint firstAttribute="trailing" secondItem="1BZ-Rf-R05" secondAttribute="trailing" id="J76-b7-iWc"/>
                             <constraint firstItem="1BZ-Rf-R05" firstAttribute="leading" secondItem="kgt-o0-aP8" secondAttribute="leading" id="Xta-yu-Fae"/>
-                            <constraint firstItem="vb6-4r-Epx" firstAttribute="top" secondItem="1BZ-Rf-R05" secondAttribute="bottom" id="Ymn-oJ-rZc"/>
+                            <constraint firstItem="vb6-4r-Epx" firstAttribute="top" secondItem="1BZ-Rf-R05" secondAttribute="bottom" priority="250" id="Ymn-oJ-rZc"/>
                             <constraint firstItem="1BZ-Rf-R05" firstAttribute="top" secondItem="EcR-ye-kTk" secondAttribute="bottom" id="wWR-Dc-ohA"/>
                         </constraints>
                     </view>

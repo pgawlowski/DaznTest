@@ -20,10 +20,10 @@ protocol ScoresViewApi: DaznUserInterfaceProtocol {
 
 // MARK: - ScoresPresenter API
 protocol ScoresPresenterApi: PresenterProtocol {
-    func fetchData() -> Driver<Void>
+    func transform(_ input: ScoresPresenter.Input) -> ScoresPresenter.Output
 }
 
 // MARK: - ScoresInteractor API
 protocol ScoresInteractorApi: InteractorProtocol {
-    func fetchScoreData() -> Single<GsmrsDto>
+    func fetchScoreData() -> Single<ScoresViewModel?>
 }

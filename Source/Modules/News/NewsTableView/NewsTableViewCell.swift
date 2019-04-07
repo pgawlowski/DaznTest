@@ -30,9 +30,7 @@ class NewsTableViewCell: UITableViewCell {
             thumbnail.download(from: thumbnailUrl)
         }
         if let date = item.pubDate {
-            let df = DateFormatter()
-            df.dateFormat = MagicValues.fullDateFormat
-            dateLabel.text = df.string(from: date)
+            dateLabel.text = String.dateFrom(MagicValues.fullDateFormat, date: date)
         }
     }
 
