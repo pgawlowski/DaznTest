@@ -17,6 +17,7 @@ PODS:
     - RxSwift (~> 4.0)
   - RxSwift (4.4.2):
     - RxAtomic (>= 4.4.2, ~> 4.4)
+  - SVProgressHUD (2.2.5)
   - SwifterSwift (4.6.0):
     - SwifterSwift/AppKit (= 4.6.0)
     - SwifterSwift/CoreGraphics (= 4.6.0)
@@ -36,15 +37,18 @@ PODS:
   - SwifterSwift/UIKit (4.6.0)
   - SwiftLint (0.31.0)
   - Viperit (1.2.1)
+  - XMLParsing (0.0.2)
 
 DEPENDENCIES:
   - Moya/RxSwift
   - RxCocoa
   - RxDataSources
   - RxSwift
+  - SVProgressHUD
   - SwifterSwift
   - SwiftLint (~> 0.27)
   - Viperit
+  - XMLParsing
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -56,9 +60,11 @@ SPEC REPOS:
     - RxCocoa
     - RxDataSources
     - RxSwift
+    - SVProgressHUD
     - SwifterSwift
     - SwiftLint
     - Viperit
+    - XMLParsing
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
@@ -69,10 +75,12 @@ SPEC CHECKSUMS:
   RxCocoa: 477990dc3b4c3ff55fb0ac77e1cc06244e0aaec8
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwifterSwift: 812ffec6f301922f5430e75be3f2939ea3a80024
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
   Viperit: 843e84dfa6b3b9d6bd971bc1e4ad0641455592df
+  XMLParsing: b6cc40a1de8e321a72b7f0d89080473f9d53cff8
 
-PODFILE CHECKSUM: c34fca39b2a57d94d82d7ab0c2baf35ad490b34c
+PODFILE CHECKSUM: 0c78a202e571cde9e045f0b911068527b2896fee
 
 COCOAPODS: 1.6.1

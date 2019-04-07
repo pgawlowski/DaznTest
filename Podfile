@@ -17,6 +17,8 @@ target 'Dazn' do
 
   # Utility
   pod 'SwifterSwift'
+  pod 'XMLParsing'
+  pod 'SVProgressHUD'
 
   target 'DaznTest' do
     inherit! :search_paths

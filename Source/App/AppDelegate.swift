@@ -6,19 +6,21 @@
 //  Copyright © 2019 Piotr Gawlowski. All rights reserved.
 //
 
+import SVProgressHUD
 import UIKit
 import Viperit
-
-let log = SwiftyBeaver.self
-let console = ConsoleDestination()
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
+        customizeAppearance()
+        AppModules.news.showAsAppRootVC()
+//        AppModules.standings.showAsAppRootVC()
+//        AppModules.scores.showAsAppRootVC()
 
         return true
     }
@@ -40,3 +42,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate {
+    private func customizeAppearance() {
+        SVProgressHUD.setDefaultMaskType(.clear)
+        SVProgressHUD.setBackgroundColor(.blue)
+        SVProgressHUD.setForegroundColor(.white)
+    }
+}
