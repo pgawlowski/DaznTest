@@ -14,6 +14,7 @@ import Viperit
 public protocol DaznUserInterfaceProtocol {
     func setupID()
     func setupTranslations()
+    func startRefreshing()
     func endRefreshing()
 
     func showError(_ error: Error)
@@ -52,6 +53,12 @@ open class DaznUserInterface: UserInterface, DaznUserInterfaceProtocol {
         super.viewWillAppear(animated)
         if refreshControl.isRefreshing {
             refreshControl.endRefreshing()
+            refreshControl.beginRefreshing()
+        }
+    }
+
+    open func startRefreshing() {
+        if isRefreshControl {
             refreshControl.beginRefreshing()
         }
     }

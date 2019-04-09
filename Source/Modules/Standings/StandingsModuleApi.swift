@@ -20,10 +20,11 @@ protocol StandingsViewApi: DaznUserInterfaceProtocol {
 
 // MARK: - StandingsPresenter API
 protocol StandingsPresenterApi: PresenterProtocol {
-    func fetchData() -> Driver<Void>
+    func transform(_ input: StandingsPresenter.Input) -> StandingsPresenter.Output
 }
 
 // MARK: - StandingsInteractor API
 protocol StandingsInteractorApi: InteractorProtocol {
+    func fetchRankingData() -> Single<[RankingDto]>
     func fetchStandingsData() -> Single<GsmrsDto>
 }

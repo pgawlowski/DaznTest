@@ -8,6 +8,7 @@
 
 import Foundation
 import RxCocoa
+import RxDataSources
 import RxSwift
 import Viperit
 import SwifterSwift
@@ -25,16 +26,15 @@ extension ScoresInteractor: ScoresInteractorApi {
             .map(GsmrsDto.self, using: GsmrsDto.xmlDecoder)
     }
 
-    func fetchScoreData() -> Single<ScoresViewModel?> {
+    func fetchScoreData() -> Single<[ScoreSectionModel]> {
         return fetchGsmrs()
-            .map({ gsmrs -> ScoresViewModel in
+            .map({ gsmrs -> [ScoreSectionModel] in
                 let dateString = gsmrs.method?.parameter?.first { $0.name == "date" }?.value ?? ""
 
                 let groups = gsmrs.competition?.season?.round?.group
                 let matches = groups?.compactMap({ $0.match }).flatMap{ $0 } ?? []
 
-                return ScoresViewModel(dateString, matches)
+                return [ScoreSectionModel(model: dateString, items: matches)]
             })
     }
-
 }

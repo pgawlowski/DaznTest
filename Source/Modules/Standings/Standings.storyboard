@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View-->
+        <!--Standings View-->
         <scene sceneID="htw-l1-ahc">
             <objects>
-                <viewController storyboardIdentifier="StandingsView" id="xqD-av-Raz" customClass="StandingsView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StandingsView" id="xqD-av-Raz" customClass="StandingsView" customModule="Dazn" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EcR-ye-kTk"/>
                         <viewControllerLayoutGuide type="bottom" id="vb6-4r-Epx"/>
@@ -19,8 +20,24 @@
                     <view key="view" contentMode="scaleToFill" id="kgt-o0-aP8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="heN-S9-dEp" customClass="IntrinsicTableView" customModule="Dazn" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="heN-S9-dEp" firstAttribute="leading" secondItem="kgt-o0-aP8" secondAttribute="leading" id="4Td-Va-sIG"/>
+                            <constraint firstItem="heN-S9-dEp" firstAttribute="top" secondItem="EcR-ye-kTk" secondAttribute="bottom" id="HqU-m0-9Y9"/>
+                            <constraint firstItem="vb6-4r-Epx" firstAttribute="top" relation="greaterThanOrEqual" secondItem="heN-S9-dEp" secondAttribute="bottom" id="OEX-sm-hSC"/>
+                            <constraint firstAttribute="trailing" secondItem="heN-S9-dEp" secondAttribute="trailing" id="VRb-AI-OnS"/>
+                            <constraint firstItem="vb6-4r-Epx" firstAttribute="top" secondItem="heN-S9-dEp" secondAttribute="bottom" priority="250" id="l8T-dc-Rfb"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="heN-S9-dEp" id="zDD-GN-U7X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nXm-AG-NXG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

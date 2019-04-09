@@ -7,8 +7,11 @@
 //
 
 import RxCocoa
+import RxDataSources
 import RxSwift
 import Viperit
+
+typealias ScoreSectionModel = SectionModel<String, MatchDto>
 
 // MARK: - ScoresRouter API
 protocol ScoresRouterApi: RouterProtocol {
@@ -25,5 +28,5 @@ protocol ScoresPresenterApi: PresenterProtocol {
 
 // MARK: - ScoresInteractor API
 protocol ScoresInteractorApi: InteractorProtocol {
-    func fetchScoreData() -> Single<ScoresViewModel?>
+    func fetchScoreData() -> Single<[ScoreSectionModel]>
 }

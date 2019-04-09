@@ -19,6 +19,13 @@ final class StandingsInteractor: Interactor {
 // MARK: - StandingsInteractor API
 extension StandingsInteractor: StandingsInteractorApi {
 
+    func fetchRankingData() -> Single<[RankingDto]> {
+        return fetchStandingsData()
+            .map {
+                $0.competition?.season?.round?.resultstable?.ranking ?? []
+            }
+    }
+
     func fetchStandingsData() -> Single<GsmrsDto> {
         return endpointsApiService.getStandings()
             .map(GsmrsDto.self, using: GsmrsDto.xmlDecoder)

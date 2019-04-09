@@ -28,6 +28,7 @@ final class ScoresView: DaznUserInterface {
     func configureTableView() {
         tableView.refreshControl = refreshControl
         tableView.register(nibWithCellClass: ScoresTableViewCell.self)
+        tableView.allowsSelection = false
     }
 
     func bindPresenter() {
@@ -38,7 +39,7 @@ final class ScoresView: DaznUserInterface {
         driveTableView(output.scores)
     }
 
-    func driveTableView(_ driver: Driver<ScoresViewModel?>) {
+    func driveTableView(_ driver: Driver<[ScoreSectionModel]>) {
         let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, MatchDto>>(
             configureCell: { _, tableView, _, item in
                 let cell = tableView.dequeueReusableCell(withClass: ScoresTableViewCell.self)
@@ -50,7 +51,6 @@ final class ScoresView: DaznUserInterface {
         }
 
         driver.asObservable()
-            .map{ [SectionModel(model: $0?.title ?? "", items: $0?.matches ?? [])]}
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
     }

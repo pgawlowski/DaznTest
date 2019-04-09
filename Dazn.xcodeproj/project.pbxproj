@@ -28,7 +28,6 @@
 		766AE53C225A5F4500925EDD /* NewsDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766AE535225A5F4500925EDD /* NewsDetailsInteractor.swift */; };
 		766AE53D225A5F4500925EDD /* NewsDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766AE536225A5F4500925EDD /* NewsDetailsView.swift */; };
 		766AE53F225A620E00925EDD /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766AE53E225A620E00925EDD /* WebKit.framework */; };
-		766AE542225A68B000925EDD /* ScoresViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766AE541225A68B000925EDD /* ScoresViewModel.swift */; };
 		766AE544225A6B1100925EDD /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766AE543225A6B1100925EDD /* Date+Extensions.swift */; };
 		766AE547225A740900925EDD /* ScoresTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766AE545225A740900925EDD /* ScoresTableViewCell.swift */; };
 		766AE548225A740900925EDD /* ScoresTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 766AE546225A740900925EDD /* ScoresTableViewCell.xib */; };
@@ -54,6 +53,11 @@
 		767F94D72259F6750009343A /* EndpointsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767F94D62259F6750009343A /* EndpointsApiService.swift */; };
 		767F94D92259FD650009343A /* AppModules+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767F94D82259FD650009343A /* AppModules+Extensions.swift */; };
 		767F94DB2259FDF80009343A /* UIWindow+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767F94DA2259FDF80009343A /* UIWindow+Extensions.swift */; };
+		769FA6D1225D120A007CF777 /* StandingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769FA6CF225D120A007CF777 /* StandingsTableViewCell.swift */; };
+		769FA6D2225D120A007CF777 /* StandingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 769FA6D0225D120A007CF777 /* StandingsTableViewCell.xib */; };
+		769FA6D4225D1548007CF777 /* StandingsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 769FA6D3225D1548007CF777 /* StandingsHeader.xib */; };
+		769FA6D6225D175F007CF777 /* StandingsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769FA6D5225D175F007CF777 /* StandingsHeader.swift */; };
+		769FA6D8225D180C007CF777 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769FA6D7225D180C007CF777 /* DesignableView.swift */; };
 		76AD7D132259E91600093638 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AD7D122259E91600093638 /* App.swift */; };
 		76AD7D1D2259EB7400093638 /* DaznTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AD7D1C2259EB7400093638 /* DaznTest.swift */; };
 		76AD7D252259EB8900093638 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76AD7D242259EB8900093638 /* Default-568h@2x.png */; };
@@ -105,7 +109,6 @@
 		766AE535225A5F4500925EDD /* NewsDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsInteractor.swift; sourceTree = "<group>"; };
 		766AE536225A5F4500925EDD /* NewsDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsView.swift; sourceTree = "<group>"; };
 		766AE53E225A620E00925EDD /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		766AE541225A68B000925EDD /* ScoresViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresViewModel.swift; sourceTree = "<group>"; };
 		766AE543225A6B1100925EDD /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		766AE545225A740900925EDD /* ScoresTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresTableViewCell.swift; sourceTree = "<group>"; };
 		766AE546225A740900925EDD /* ScoresTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoresTableViewCell.xib; sourceTree = "<group>"; };
@@ -131,6 +134,11 @@
 		767F94D62259F6750009343A /* EndpointsApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointsApiService.swift; sourceTree = "<group>"; };
 		767F94D82259FD650009343A /* AppModules+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppModules+Extensions.swift"; sourceTree = "<group>"; };
 		767F94DA2259FDF80009343A /* UIWindow+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extensions.swift"; sourceTree = "<group>"; };
+		769FA6CF225D120A007CF777 /* StandingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsTableViewCell.swift; sourceTree = "<group>"; };
+		769FA6D0225D120A007CF777 /* StandingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StandingsTableViewCell.xib; sourceTree = "<group>"; };
+		769FA6D3225D1548007CF777 /* StandingsHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StandingsHeader.xib; sourceTree = "<group>"; };
+		769FA6D5225D175F007CF777 /* StandingsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsHeader.swift; sourceTree = "<group>"; };
+		769FA6D7225D180C007CF777 /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		76AD7D122259E91600093638 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		76AD7D1A2259EB7400093638 /* DaznTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DaznTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76AD7D1C2259EB7400093638 /* DaznTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaznTest.swift; sourceTree = "<group>"; };
@@ -241,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				766AE51F225A4D7A00925EDD /* Collections */,
+				769FA6D7225D180C007CF777 /* DesignableView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -287,7 +296,6 @@
 		766AE540225A689F00925EDD /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				766AE541225A68B000925EDD /* ScoresViewModel.swift */,
 				766AE545225A740900925EDD /* ScoresTableViewCell.swift */,
 				766AE546225A740900925EDD /* ScoresTableViewCell.xib */,
 			);
@@ -312,6 +320,7 @@
 		767F94AA2259EFBB0009343A /* Standings */ = {
 			isa = PBXGroup;
 			children = (
+				769FA6CE225D11D4007CF777 /* TableView */,
 				767F94B92259EFEA0009343A /* Standings.storyboard */,
 				767F94BA2259EFEA0009343A /* StandingsDisplayData.swift */,
 				767F94BB2259EFEA0009343A /* StandingsPresenter.swift */,
@@ -367,6 +376,17 @@
 				767F94D62259F6750009343A /* EndpointsApiService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		769FA6CE225D11D4007CF777 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				769FA6CF225D120A007CF777 /* StandingsTableViewCell.swift */,
+				769FA6D0225D120A007CF777 /* StandingsTableViewCell.xib */,
+				769FA6D3225D1548007CF777 /* StandingsHeader.xib */,
+				769FA6D5225D175F007CF777 /* StandingsHeader.swift */,
+			);
+			path = TableView;
 			sourceTree = "<group>";
 		};
 		76AD7D1B2259EB7400093638 /* DaznTest */ = {
@@ -517,12 +537,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				766AE537225A5F4500925EDD /* NewsDetails.storyboard in Resources */,
+				769FA6D2225D120A007CF777 /* StandingsTableViewCell.xib in Resources */,
 				767F94C02259EFEA0009343A /* Standings.storyboard in Resources */,
 				767F94B22259EFDE0009343A /* Scores.storyboard in Resources */,
 				7656113B2259E1D300FB52E5 /* LaunchScreen.storyboard in Resources */,
 				766AE526225A4E1A00925EDD /* NewsTableViewCell.xib in Resources */,
 				766AE548225A740900925EDD /* ScoresTableViewCell.xib in Resources */,
 				76AD7D252259EB8900093638 /* Default-568h@2x.png in Resources */,
+				769FA6D4225D1548007CF777 /* StandingsHeader.xib in Resources */,
 				765611382259E1D300FB52E5 /* Assets.xcassets in Resources */,
 				76AD7D2D2259ECD800093638 /* News.storyboard in Resources */,
 			);
@@ -571,6 +593,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Dazn/Pods-Dazn-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
+				"${BUILT_PRODUCTS_DIR}/FontAwesomeKit.Swift/FontAwesomeKit_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
@@ -588,6 +611,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesomeKit_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
@@ -657,7 +681,6 @@
 				766AE547225A740900925EDD /* ScoresTableViewCell.swift in Sources */,
 				7656115A2259E5F500FB52E5 /* AppModules.swift in Sources */,
 				765611312259E1D100FB52E5 /* AppDelegate.swift in Sources */,
-				766AE542225A68B000925EDD /* ScoresViewModel.swift in Sources */,
 				76AD7D332259ECD800093638 /* NewsView.swift in Sources */,
 				766AE53C225A5F4500925EDD /* NewsDetailsInteractor.swift in Sources */,
 				76AD7D312259ECD800093638 /* NewsModuleApi.swift in Sources */,
@@ -676,6 +699,7 @@
 				766AE525225A4E1A00925EDD /* NewsTableViewCell.swift in Sources */,
 				767F94C92259F0B80009343A /* MoyaSugar.swift in Sources */,
 				767F94B52259EFDE0009343A /* ScoresRouter.swift in Sources */,
+				769FA6D1225D120A007CF777 /* StandingsTableViewCell.swift in Sources */,
 				767F94B62259EFDE0009343A /* ScoresModuleApi.swift in Sources */,
 				76AD7D2F2259ECD800093638 /* NewsPresenter.swift in Sources */,
 				767F94C22259EFEA0009343A /* StandingsPresenter.swift in Sources */,
@@ -691,10 +715,12 @@
 				767F94D42259F5180009343A /* ApiEndpoints.swift in Sources */,
 				766AE52E225A544F00925EDD /* MagicValues.swift in Sources */,
 				76AD7D2E2259ECD800093638 /* NewsDisplayData.swift in Sources */,
+				769FA6D8225D180C007CF777 /* DesignableView.swift in Sources */,
 				766AE52B225A4FEA00925EDD /* PrimitiveSequence+Extensions.swift in Sources */,
 				767F94CE2259F1AB0009343A /* Encodable+Extensions.swift in Sources */,
 				767F94D92259FD650009343A /* AppModules+Extensions.swift in Sources */,
 				767F94B82259EFDE0009343A /* ScoresView.swift in Sources */,
+				769FA6D6225D175F007CF777 /* StandingsHeader.swift in Sources */,
 				76AD7D372259ED2200093638 /* DaznUserInterface.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

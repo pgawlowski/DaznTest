@@ -14,7 +14,7 @@ import Viperit
 // MARK: - ScoresPresenter Class
 final class ScoresPresenter: Presenter {
 
-    private var scores: PublishSubject<ScoresViewModel?> = PublishSubject()
+    private var scores: PublishSubject<[ScoreSectionModel]> = PublishSubject()
 
     func fetchData() -> Driver<Void> {
         return interactor.fetchScoreData()
@@ -36,24 +36,21 @@ extension ScoresPresenter: ScoresPresenterApi {
     }
     struct Output {
         let cancelable: Cancelable
-        let scores: Driver<ScoresViewModel?>
+        let scores: Driver<[ScoreSectionModel]>
     }
 
     func transform(_ input: Input) -> Output {
         let refreshInput = input.refreshTrigger.flatMapLatest { [unowned self] _ -> Driver<Void> in
             self.fetchData()
         }
-
         let cancelable = Disposables.create([
             refreshInput.drive(),
         ])
-
-        let scoresOutput = scores.asDriver(onErrorJustReturn: nil)
+        let scoresOutput = scores.asDriver(onErrorJustReturn: [])
 
         return Output(cancelable: cancelable,
                       scores: scoresOutput)
     }
-
 }
 
 // MARK: - Scores Viper Components

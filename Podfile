@@ -19,6 +19,7 @@ target 'Dazn' do
   pod 'SwifterSwift'
   pod 'XMLParsing'
   pod 'SVProgressHUD'
+  pod 'FontAwesomeKit.Swift', '1.0.2'
 
   target 'DaznTest' do
     inherit! :search_paths

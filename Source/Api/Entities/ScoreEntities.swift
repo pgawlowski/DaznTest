@@ -58,10 +58,10 @@ struct RankingDto: Codable {
     let rank: Int?
     let last_rank: Int?
     let zone_start: String?
-//    let "_team_id": "676",
-//    let "_club_name": "Manchester City",
-//    let "_countrycode": "ENG",
-//    let "_area_id": "68",
+    let team_id: String?
+    let club_name: String?
+    let countrycode: String?
+    let area_id: String?
     let matches_total: Int?
     let matches_won: Int?
     let matches_draw: Int?
@@ -69,4 +69,28 @@ struct RankingDto: Codable {
     let goals_pro: Int?
     let goals_against: Int?
     let points: Int?
+}
+
+extension RankingDto {
+    var goalDifference: Int? {
+        guard let pro = goals_pro, let agains = goals_against else {
+            return nil
+        }
+        return pro - agains
+    }
+
+    var relegation: ClubRelegation {
+        guard let current = rank, let last = last_rank,
+            current != last else { return .NoChange }
+        let difference = current - last
+        return (difference > 0) ? .Down : .Up
+    }
+}
+
+enum ClubRelegation: Int, Codable {
+    case Up
+    case Down
+    case NoChange
+
+
 }

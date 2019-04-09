@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (4.8.1)
   - Differentiator (3.1.0)
+  - FontAwesomeKit.Swift (1.0.2)
   - Moya/Core (12.0.1):
     - Alamofire (~> 4.1)
     - Result (~> 4.0)
@@ -40,6 +41,7 @@ PODS:
   - XMLParsing (0.0.2)
 
 DEPENDENCIES:
+  - FontAwesomeKit.Swift (= 1.0.2)
   - Moya/RxSwift
   - RxCocoa
   - RxDataSources
@@ -54,6 +56,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Differentiator
+    - FontAwesomeKit.Swift
     - Moya
     - Result
     - RxAtomic
@@ -69,6 +72,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
+  FontAwesomeKit.Swift: cf839537bbff89b5853a00653b2a2f31748c2c1c
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   RxAtomic: d00e97c10db88c6f08540e0bf2752fc5a2404167
@@ -81,6 +85,6 @@ SPEC CHECKSUMS:
   Viperit: 843e84dfa6b3b9d6bd971bc1e4ad0641455592df
   XMLParsing: b6cc40a1de8e321a72b7f0d89080473f9d53cff8
 
-PODFILE CHECKSUM: 0c78a202e571cde9e045f0b911068527b2896fee
+PODFILE CHECKSUM: 376ea94a33b1d77e0d87cade251f49ace05e7bb4
 
 COCOAPODS: 1.6.1
