@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwiftExt
 import RxCocoa
 import RxSwift
 import Viperit
@@ -16,15 +17,24 @@ final class ScoresPresenter: Presenter {
 
     private var scores: PublishSubject<[ScoreSectionModel]> = PublishSubject()
 
-    func fetchData() -> Driver<Void> {
+    func loopFetchData() -> Driver<Void> {
+        return Observable<Int>
+            .timer(0.0, period: ScoresValues.period, scheduler: MainScheduler.instance)
+            .flatMap { [weak self] _ -> Observable<Void> in
+                return self?.fetchScores() ?? Observable.just(())
+            }.asDriver(onErrorJustReturn: ())
+    }
+
+    func fetchScores() -> Observable<Void> {
         return interactor.fetchScoreData()
-            .do(onSuccess: { [weak self] response in
+            .doWithLoader()
+            .asObservable()
+            .retry(.delayed(maxCount: ScoresValues.repeatMaxCount, time: ScoresValues.repeatTime))
+            .do(onNext: { [weak self] response in
                 self?.scores.onNext(response)
-                self?.view.endRefreshing()
             }, onError: { [weak self] error in
                 self?.view.showError(error)
             }).map { _ in Void() }
-            .asDriver(onErrorJustReturn: ())
     }
 
 }
@@ -41,7 +51,7 @@ extension ScoresPresenter: ScoresPresenterApi {
 
     func transform(_ input: Input) -> Output {
         let refreshInput = input.refreshTrigger.flatMapLatest { [unowned self] _ -> Driver<Void> in
-            self.fetchData()
+            self.loopFetchData()
         }
         let cancelable = Disposables.create([
             refreshInput.drive(),

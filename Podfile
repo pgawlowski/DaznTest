@@ -14,6 +14,7 @@ target 'Dazn' do
   pod 'RxCocoa'
   pod 'RxDataSources'
   pod 'RxSwift'
+  pod 'RxSwiftExt'
 
   # Utility
   pod 'SwifterSwift'

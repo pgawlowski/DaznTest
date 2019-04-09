@@ -19,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         customizeAppearance()
 //        AppModules.news.showAsAppRootVC()
-        AppModules.standings.showAsAppRootVC()
-//        AppModules.scores.showAsAppRootVC()
+//        AppModules.standings.showAsAppRootVC()
+        AppModules.scores.showAsAppRootVC()
 
         return true
     }
