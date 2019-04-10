@@ -7,3 +7,11 @@
 //
 
 import Foundation
+import Viperit
+
+enum AppModules: String, ViperitModule {
+    case news
+    case newsDetails
+    case scores
+    case standings
+}

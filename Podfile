@@ -14,12 +14,17 @@ target 'Dazn' do
   pod 'RxCocoa'
   pod 'RxDataSources'
   pod 'RxSwift'
+  pod 'RxSwiftExt'
 
   # Utility
   pod 'SwifterSwift'
+  pod 'XMLParsing'
+  pod 'SVProgressHUD'
+  pod 'FontAwesomeKit.Swift', '1.0.2'
 
   target 'DaznTest' do
     inherit! :search_paths
+    pod 'RxTest'
     # Pods for testing
   end
 

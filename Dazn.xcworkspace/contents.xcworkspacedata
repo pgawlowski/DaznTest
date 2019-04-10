@@ -2,12 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/pgawlowski/Documents/Projects/DaznTest/Dazn.xcodeproj">
+      location = "group:Dazn.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Dazn.xcodeproj">
    </FileRef>
 </Workspace>
