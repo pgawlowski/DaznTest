@@ -19,53 +19,46 @@ extension Decodable {
         return df
     }
 
+    static var decoder: JSONDecoder {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(Self.dateDecodingStrategy)
+        return decoder
+    }
+
     static var xmlDecoder: XMLDecoder {
         let decoder = XMLDecoder()
         decoder.dateDecodingStrategy = .formatted(Self.dateDecodingStrategy)
         return decoder
     }
 
-//    static func xmlDecode(from data: Data) throws -> Self {
-//        do {
-//            return try xmlDecoder.decode(Self.self, from: data)
-//        } catch {
-//            throw error
-//        }
-//    }
-//
-////    static func decode<T>(from dictionary: [String: Any]) throws -> T where T: Decodable {
-////        let data = try JSONSerialization.data(withJSONObject: dictionary, options: [])
-////        return try xmlDecoder.decode(Self, from: data)
-////    }
-////
-////    static func loadFromFile(name: String, type: String = "xml") throws -> Self {
-////        do {
-////            let data = try getData(name: name, type: type)
-////            return try Self.decode(from: data)
-////        } catch {
-////            throw error
-////        }
-////    }
-////
-////    static func loadArrayFromFile(name: String, type: String = "xml") throws -> [Self] {
-////        do {
-////            let data = try getData(name: name, type: type)
-////            return try [Self].decode(from: data)
-////        } catch {
-////            throw error
-////        }
-////    }
+    static func loadJSONFromFile(name: String) throws -> Self {
+        do {
+            let data = try getData(name: name, type: "json")
+            return try decoder.decode(self, from: data)
+        } catch {
+            throw error
+        }
+    }
 
-//    private static func getData(name: String, type: String) throws -> Data {
-//        guard let path = Bundle.main.path(forResource: name, ofType: type) else {
-//            throw NSError(domain: "File path inaccessible", code: 0)
-//        }
-//        guard let data = NSData(contentsOfFile: path) else {
-//            throw NSError(domain: "Content of file inaccesible", code: 0)
-//        }
-//
-//        return data as Data
-//    }
+    static func loadJSONArrayFromFile(name: String) throws -> [Self] {
+        do {
+            let data = try getData(name: name, type: "json")
+            return try decoder.decode([Self].self, from: data)
+        } catch {
+            throw error
+        }
+    }
+
+    private static func getData(name: String, type: String) throws -> Data {
+        guard let path = Bundle.main.path(forResource: name, ofType: type) else {
+            throw NSError(domain: "File path inaccessible", code: 0)
+        }
+        guard let data = NSData(contentsOfFile: path) else {
+            throw NSError(domain: "Content of file inaccesible", code: 0)
+        }
+
+        return data as Data
+    }
 }
 
 internal extension Encodable {

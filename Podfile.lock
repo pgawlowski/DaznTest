@@ -26,6 +26,8 @@ PODS:
   - RxSwiftExt/RxCocoa (3.4.0):
     - RxCocoa (~> 4.0)
     - RxSwiftExt/Core
+  - RxTest (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
   - SVProgressHUD (2.2.5)
   - SwifterSwift (4.6.0):
     - SwifterSwift/AppKit (= 4.6.0)
@@ -55,6 +57,7 @@ DEPENDENCIES:
   - RxDataSources
   - RxSwift
   - RxSwiftExt
+  - RxTest
   - SVProgressHUD
   - SwifterSwift
   - SwiftLint (~> 0.27)
@@ -73,6 +76,7 @@ SPEC REPOS:
     - RxDataSources
     - RxSwift
     - RxSwiftExt
+    - RxTest
     - SVProgressHUD
     - SwifterSwift
     - SwiftLint
@@ -90,12 +94,13 @@ SPEC CHECKSUMS:
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
   RxSwiftExt: 01f8ecbeeb355698e9c75365ebe908b00dacf45d
+  RxTest: 3ccb66bfbace0bf7df1c43a7c75d046f8ce60372
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwifterSwift: 812ffec6f301922f5430e75be3f2939ea3a80024
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
   Viperit: 843e84dfa6b3b9d6bd971bc1e4ad0641455592df
   XMLParsing: b6cc40a1de8e321a72b7f0d89080473f9d53cff8
 
-PODFILE CHECKSUM: 649082fd3de3ec93d8ebb9042bb72e90b25f79ed
+PODFILE CHECKSUM: bdb626f2a7a22d7a1affe8ab0ee482d1b9c24d38
 
 COCOAPODS: 1.6.1

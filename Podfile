@@ -24,6 +24,7 @@ target 'Dazn' do
 
   target 'DaznTest' do
     inherit! :search_paths
+    pod 'RxTest'
     # Pods for testing
   end
 

@@ -31,4 +31,25 @@ open class MoyaSugar<Target: TargetType> {
                                         manager: manager,
                                         plugins: [])
     }
+
+    init(stubClosure: @escaping MoyaProvider<Target>.StubClosure = MoyaProvider.neverStub,
+         responseCode: Int = -1,
+         fileName: String = "") {
+
+        let stubClosure = MoyaProvider<Target>.immediatelyStub
+        provider = MoyaProvider<Target>(endpointClosure: { target -> Endpoint in
+            return Endpoint(url: target.url(target),
+                            sampleResponseClosure: {
+                                self.networkResponse(responseCode, target: target, fileName: fileName) },
+                            method: target.method, task: target.task,
+                            httpHeaderFields: target.headers)},
+                                        stubClosure: stubClosure,
+                                        plugins: []
+        )
+    }
+
+    private func networkResponse(_ responseCode: Int, target: Target, fileName: String = "") -> EndpointSampleResponse {
+        let stubbedResponse = target.stubbedResponse(filename: fileName, type: "xml") ?? target.sampleData
+        return EndpointSampleResponse.networkResponse(responseCode, stubbedResponse)
+    }
 }

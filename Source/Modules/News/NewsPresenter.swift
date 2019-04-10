@@ -15,13 +15,13 @@ import Viperit
 // MARK: - NewsPresenter Class
 final class NewsPresenter: Presenter {
 
-    private var news: PublishSubject<[RssItemDto]> = PublishSubject()
+    private var news: BehaviorRelay<[RssItemDto]> = BehaviorRelay(value: [])
 
     func fetchData() -> Driver<Void> {
         return interactor.fetchRssNews()
             .doWithLoader()
             .do(onSuccess: { [weak self] response in
-                self?.news.onNext(response)
+                self?.news.accept(response)
                 self?.view.endRefreshing()
             }, onError: { [weak self] error in
                 self?.view.showError(error)
@@ -29,16 +29,11 @@ final class NewsPresenter: Presenter {
             .asDriver(onErrorJustReturn: ())
     }
 
-    func selectItem(_ indexPath: Observable<IndexPath>) -> Driver<Void> {
-        return Observable.zip(indexPath, news.asObservable())
-            .do(onNext: { [weak self] indexPath, news in
-                guard let item = news[safe: indexPath.item],
-                    let url = item.link else { return }
-                self?.router.navigateToNewsDetails(url)
-            }).map { _ in Void() }
-            .asDriver(onErrorJustReturn: ())
-    }
-
+    func itemSelected(_ indexPath: IndexPath) {
+        guard let item = news.value[safe: indexPath.item],
+            let url = item.link else { return }
+        router.navigateToNewsDetails(url)
+   }
 }
 
 // MARK: - NewsPresenter API
@@ -53,14 +48,18 @@ extension NewsPresenter: NewsPresenterApi {
     }
 
     func transform(_ input: Input) -> Output {
-        let didSelectItem = selectItem(input.itemSelected)
-        let refreshInput = input.refreshTrigger.flatMapLatest { [unowned self] _ -> Driver<Void> in
-            self.fetchData()
-        }
+        let didSelectItem = input.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                self?.itemSelected(indexPath)
+            })
+        let refreshInput = input.refreshTrigger
+            .flatMapLatest { [unowned self] _ -> Driver<Void> in
+                self.fetchData()
+            }
 
         let cancelable = Disposables.create([
             refreshInput.drive(),
-            didSelectItem.drive()
+            didSelectItem
         ])
 
         let newsOutput = news.asDriver(onErrorJustReturn: [])

@@ -80,8 +80,8 @@ extension TargetType {
     }
 
     // MARK: - Provider support
-    func stubbedResponse(filename: String) -> Data? {
-        guard let path = Bundle.main.path(forResource: filename, ofType: "json") else { return nil }
+    func stubbedResponse(filename: String, type: String = "json") -> Data? {
+        guard let path = Bundle.main.path(forResource: filename, ofType: type) else { return nil }
         guard let data = NSData(contentsOfFile: path) else { return nil }
 
         return Data(referencing: data)
