@@ -22,7 +22,9 @@ extension StandingsInteractor: StandingsInteractorApi {
     func fetchRankingData() -> Single<[RankingDto]> {
         return fetchStandingsData()
             .map {
-                $0.competition?.season?.round?.resultstable?.ranking ?? []
+                var rankings = $0.competition?.season?.round?.resultstable?.ranking ?? []
+                rankings.sort(by: { $0.rank ?? 0 <= $1.rank ?? 0 })
+                return rankings
             }
     }
 

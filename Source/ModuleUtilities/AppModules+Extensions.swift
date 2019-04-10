@@ -12,6 +12,7 @@ extension AppModules {
     var upperCasedName: String {
         return rawValue.prefix(1).uppercased() + rawValue.dropFirst()
     }
+    
 
     private static var window: UIWindow {
         guard let window = UIApplication.shared.delegate?.window as? UIWindow else {

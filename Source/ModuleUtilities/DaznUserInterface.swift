@@ -16,6 +16,7 @@ public protocol DaznUserInterfaceProtocol {
     func setupTranslations()
     func startRefreshing()
     func endRefreshing()
+    func dropdownMenuAction()
 
     func showError(_ error: Error)
     func showError(_ error: Error, completion: (() -> Swift.Void)?)
@@ -24,8 +25,10 @@ public protocol DaznUserInterfaceProtocol {
 open class DaznUserInterface: UserInterface, DaznUserInterfaceProtocol {
 
     var disposeBag = DisposeBag()
+    var menuTableView = IntrinsicTableView()
 
     private var isRefreshControl = false
+
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.tintColor = UIColor.blue
@@ -47,6 +50,8 @@ open class DaznUserInterface: UserInterface, DaznUserInterfaceProtocol {
         super.viewDidLoad()
         setupID()
         setupTranslations()
+        addMenuButton()
+        configureSideMenu()
     }
 
     open override func viewWillAppear(_ animated: Bool) {
@@ -69,6 +74,10 @@ open class DaznUserInterface: UserInterface, DaznUserInterfaceProtocol {
         }
     }
 
+    @objc open func dropdownMenuAction() {
+        menuTableView.isHidden = !menuTableView.isHidden
+    }
+
     @objc dynamic
     open func setupID() {
         print("Setup id not implemented")
@@ -87,5 +96,13 @@ open class DaznUserInterface: UserInterface, DaznUserInterfaceProtocol {
     @objc dynamic
     open func showError(_ error: Error, completion: (() -> Void)?) {
 
+    }
+}
+
+extension DaznUserInterface {
+    public func addMenuButton() {
+        guard let image = UIImage(awesomeType: .caretDown, textColor: .gray) else { return }
+        let menuButton = addRightBarButtonItem(image: image)
+        menuButton.addTargetForAction(self, action: #selector(dropdownMenuAction))
     }
 }

@@ -33,11 +33,11 @@ class StandingsTableViewCell: UITableViewCell {
     }
 
     func setup(_ item: RankingDto) {
-        let lastRank = item.last_rank ?? 0
-        let bgColor = (lastRank % 2 == 1) ? UIColor.lightGray.withAlphaComponent(0.5) : UIColor.white
+        let rank = item.rank ?? 0
+        let bgColor = (rank % 2 == 1) ? UIColor.lightGray.withAlphaComponent(0.5) : UIColor.white
         backgroundColor = bgColor
 
-        positionLabel.text = String(format: "%02d", lastRank)
+        positionLabel.text = String(format: "%02d", item.rank ?? 0)
         clubNameLabel.text = item.club_name
         playedLabel.text = item.matches_total?.string ?? "0"
         wonLabel.text = item.matches_draw?.string ?? "0"

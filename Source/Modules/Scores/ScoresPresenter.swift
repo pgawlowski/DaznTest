@@ -36,7 +36,6 @@ final class ScoresPresenter: Presenter {
                 self?.view.showError(error)
             }).map { _ in Void() }
     }
-
 }
 
 // MARK: - ScoresPresenter API

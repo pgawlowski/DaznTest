@@ -18,10 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         customizeAppearance()
-//        AppModules.news.showAsAppRootVC()
-//        AppModules.standings.showAsAppRootVC()
-        AppModules.scores.showAsAppRootVC()
-
+        AppModules.news.showAsAppRootVC()
         return true
     }
 

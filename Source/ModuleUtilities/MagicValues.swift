@@ -11,6 +11,7 @@ import Foundation
 
 struct MagicValues {
     static let fullDateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
+    static let SideMenuPlist = "SideMenu"
 }
 
 struct ScoresValues {

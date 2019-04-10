@@ -30,7 +30,7 @@ final class NewsPresenter: Presenter {
     }
 
     func selectItem(_ indexPath: Observable<IndexPath>) -> Driver<Void> {
-        return Observable.combineLatest(indexPath, news.asObservable())
+        return Observable.zip(indexPath, news.asObservable())
             .do(onNext: { [weak self] indexPath, news in
                 guard let item = news[safe: indexPath.item],
                     let url = item.link else { return }
